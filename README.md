@@ -2,6 +2,8 @@
     python3.9标准库 + threading + requests + BeautifulSoup + argparse
 
 项目结构说明：
+
+```txt
     web-vuln-scanner/
     ├── scanner.py              # 主程序入口
     ├── requirements.txt        # 依赖包列表
@@ -34,6 +36,7 @@
     │   └── (生成的文件)
     └── logs/                # 日志目录
         └── scanner.log
+```
 
 实现优先级建议
 第一阶段：基础框架 (1-2天)
