@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-01-16T21:10:58.457407",
+  "summary": {
+    "total_vulnerabilities": 2
+  },
+  "vulnerabilities": [
+    {
+      "type": "SQL Injection (error-based)",
+      "url": "http://127.0.0.1/dvwa/vulnerabilities/sqli/?id=1%27",
+      "trigger_payload": "'",
+      "confidence": "high",
+      "method": "GET",
+      "description": "检测到SQL注入漏洞(GET请求)，触发payload为：'，完整URL：http://127.0.0.1/dvwa/vulnerabilities/sqli/?id=1%27"
+    },
+    {
+      "type": "SQL Injection (error-based)",
+      "url": "http://127.0.0.1/dvwa/vulnerabilities/sqli/?Submit=Submit%27&user_token=869179c7da84259406a52b8f3aa74e08",
+      "trigger_payload": "'",
+      "confidence": "high",
+      "method": "GET",
+      "description": "检测到SQL注入漏洞(GET请求)，触发payload为：'，完整URL：http://127.0.0.1/dvwa/vulnerabilities/sqli/?Submit=Submit%27&user_token=869179c7da84259406a52b8f3aa74e08"
+    }
+  ]
+}

